@@ -1,0 +1,10 @@
+[package]
+name = "poly_enum"
+version = "0.1.0"
+edition = "2024"
+
+[workspace]
+members = ["derive"]
+
+[dependencies]
+derive = {path = "derive"}
