@@ -12,6 +12,7 @@ edition = "2024"
 
 [workspace]
 members = ["derive"]
+default-members = ["derive"]
 
 [dependencies]
-derive = {path = "derive"}
+derive = {path = "./derive", version = "0.1"}
