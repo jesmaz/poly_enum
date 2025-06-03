@@ -40,7 +40,7 @@ use std::{rc::Rc, sync::Arc};
 
 /// Generates a hierarchy from the provided enum. Will not work on structs or unions.
 ///
-/// # #[poly_derive]
+/// # #\[poly_derive\]
 /// Pass through derive macros to sub-enums. These do not necessarily need to match the parent's derive attribute.
 /// ```
 /// use poly_enum::PolyEnum;
@@ -62,7 +62,7 @@ use std::{rc::Rc, sync::Arc};
 /// }
 /// ```
 ///
-/// # #[poly_enum]
+/// # #\[poly_enum\]
 /// Mark an enum variant as belonging to one or more sub-enums.
 /// ```
 /// use poly_enum::PolyEnum;
