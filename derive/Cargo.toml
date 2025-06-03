@@ -1,6 +1,10 @@
 [package]
-name = "derive"
+name = "poly_enum_derive"
+authors = ["Jesse Mazis <recursiveowl@gmail.com>"]
+description = "Proc macro helper crate for poly_enum"
 version = "0.1.0"
+license = "Apache-2.0"
+repository = "https://github.com/jesmaz/poly_enum"
 edition = "2024"
 
 [lib]

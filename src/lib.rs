@@ -47,7 +47,7 @@ use std::{rc::Rc, sync::Arc};
 ///     V2(u64, u64),
 /// }
 /// ```
-pub use derive::PolyEnum;
+pub use poly_enum_derive::PolyEnum;
 
 /// The main trait for polymorphic enums.
 /// This trait allows casting between different enums within a hierarchy.

@@ -12,7 +12,7 @@ edition = "2024"
 
 [workspace]
 members = ["derive"]
-default-members = ["derive"]
+resolver = "2"
 
 [dependencies]
-derive = {path = "./derive", version = "0.1"}
+poly_enum_derive = {path = "derive", version = "0.1"}
