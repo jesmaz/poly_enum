@@ -296,10 +296,11 @@ pub fn poly_enum(item: proc_macro::TokenStream) -> proc_macro::TokenStream {
 		}).flat_map(|attr| attr.tokens.clone().into_iter());
 
 		let (parent_impl_generics, parent_ty_generics, parent_where_clause) = derive_input.generics.split_for_impl();
+		let vis = derive_input.vis.clone();
 
 		quote! {
 			#[derive(#(#derive_tokens)*)]
-			enum #k #ty_generics #where_clause {#(#variants),*}
+			#vis enum #k #ty_generics #where_clause {#(#variants),*}
 
 			impl #parent_impl_generics PolyEnum<#k #ty_generics> for #enum_ident #parent_ty_generics #parent_where_clause {
 				fn cast(self) -> Option<#k #ty_generics> {
