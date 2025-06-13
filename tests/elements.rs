@@ -1,6 +1,5 @@
-use poly_enum::PolyEnum;
-
-#[derive(PolyEnum)]
+#[poly_enum::poly_enum]
+#[repr(u32)]
 enum Elements {
 	#[poly_enum(NonMetal)]
 	Carbon,
@@ -18,6 +17,7 @@ enum Elements {
 
 #[test]
 fn cast_carbon() {
+	use poly_enum::Cast;
 	let e_carbon = Elements::Carbon;
 	let nm_carbon: NonMetal = e_carbon.cast().unwrap();
 	let ox_carbon: Option<Oxidizer> = nm_carbon.cast();
@@ -26,15 +26,23 @@ fn cast_carbon() {
 
 #[test]
 fn cast_florine() {
-	assert!(PolyEnum::<Metal>::cast(Oxidizer::Florine).is_none());
-	assert!(PolyEnum::<NonMetal>::cast(Oxidizer::Florine).is_some());
-	assert!(PolyEnum::<Alkali>::cast(Oxidizer::Florine).is_none());
+	use poly_enum::Cast;
+	assert!(Cast::<Metal>::cast(Oxidizer::Florine).is_none());
+	assert!(Cast::<NonMetal>::cast(Oxidizer::Florine).is_some());
+	assert!(Cast::<Alkali>::cast(Oxidizer::Florine).is_none());
 }
 
 #[test]
 fn cast_iron() {
-	assert!(PolyEnum::<Alkali>::cast(Elements::Iron).is_none());
-	assert!(PolyEnum::<Metal>::cast(Elements::Iron).is_some());
-	assert!(PolyEnum::<NonMetal>::cast(Elements::Iron).is_none());
-	assert!(PolyEnum::<Oxidizer>::cast(Elements::Iron).is_none());
+	use poly_enum::Cast;
+	assert!(Cast::<Alkali>::cast(Elements::Iron).is_none());
+	assert!(Cast::<Metal>::cast(Elements::Iron).is_some());
+	assert!(Cast::<NonMetal>::cast(Elements::Iron).is_none());
+	assert!(Cast::<Oxidizer>::cast(Elements::Iron).is_none());
+}
+
+#[test]
+fn cast_by_ref() {
+	use poly_enum::CastRef;
+	assert!(CastRef::<Metal>::cast_ref(&Elements::Florine).is_none());
 }

@@ -1,15 +1,15 @@
 use std::{rc::Rc, sync::Arc};
 
-#[poly_enum::poly_enum]
-#[repr(u32)]
-#[derive(Clone)]
-enum AnyPtr {
+use poly_enum::PolyEnum;
+
+#[derive(PolyEnum)]
+enum AnyPtr<T> where T: Clone {
 	#[poly_enum(RcPtr)]
-	Arc(Arc<Self>),
+	Arc(Arc<T>),
 	#[poly_enum(BoxPtr)]
-	Box(Box<Self>),
+	Box(Box<T>),
 	#[poly_enum(RcPtr)]
-	Rc(Rc<Self>),
+	Rc(Rc<T>),
 	#[poly_enum(NotAPointer)]
 	None,
 }

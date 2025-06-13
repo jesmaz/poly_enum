@@ -1,6 +1,7 @@
-#[poly_enum::poly_enum]
-#[repr(u32)]
-#[derive(Clone, Copy, Debug)]
+use poly_enum::PolyEnum;
+
+#[derive(Clone, Copy, Debug, PolyEnum)]
+#[poly_derive(Clone, Copy, Debug)]
 enum Value {
 	#[poly_enum(Half, Float)]
 	F32(f32),

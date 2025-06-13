@@ -1,8 +1,7 @@
 use std::{rc::Rc, sync::Arc};
 
-use poly_enum::PolyEnum;
-
-#[derive(PolyEnum)]
+#[poly_enum::poly_enum]
+#[repr(u32)]
 enum AnyPtr<T> {
 	#[poly_enum(RcPtr)]
 	Arc(Arc<T>),
