@@ -1,3 +1,5 @@
+#![allow(deprecated)]
+
 use std::{rc::Rc, sync::Arc};
 
 use poly_enum::PolyEnum;

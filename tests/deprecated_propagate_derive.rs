@@ -1,3 +1,5 @@
+#![allow(deprecated)]
+
 use poly_enum::PolyEnum;
 
 #[derive(Clone, Copy, Debug, PolyEnum)]
